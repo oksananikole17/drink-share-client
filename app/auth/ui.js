@@ -22,8 +22,7 @@ const onSignInSuccess = function (response) {
   $('#auth-home').hide()
   $('form').trigger('reset')
   $('#sign-out').show()
-  $('#show-all').show()
-  $('#find-modal').show()
+  $('#home-page').show()
   $('#password').show()
 
   store.user = response.user
@@ -60,7 +59,6 @@ const onSignOutSuccess = function () {
   $('#home-page').hide()
   $('#sign-out').hide()
   $('#show-all').hide()
-  $('#find-modal').hide()
   $('#password').hide()
 }
 
