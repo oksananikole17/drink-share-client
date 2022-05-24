@@ -15,4 +15,11 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#new-drink-form').hide()
   $('#new-drink-form').on('submit', drinkEvents.onNewDrink)
+  $('#show-drinks').on('click', drinkEvents.onIndexDrinks)
+  $('#index-drinks').on('click', '.drinks-destroy-dynamic', drinkEvents.onDynamicDestroyDrink)
+  $('#index-drinks').on(
+    'submit',
+    '.drinks-update-dynamic',
+    drinkEvents.onDynamicUpdateDrink
+  )
 })

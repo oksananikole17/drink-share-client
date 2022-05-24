@@ -14,6 +14,39 @@ const newDrink = function (data) {
   })
 }
 
+const indexDrinks = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/drinks',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+const destroyDrink = function (id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/drinks/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const updateDrink = function (id, data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/drinks/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
-  newDrink
+  newDrink,
+  indexDrinks,
+  destroyDrink,
+  updateDrink
 }

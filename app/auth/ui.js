@@ -61,6 +61,7 @@ const onSignOutSuccess = function () {
   $('#sign-out').hide()
   $('#show-all').hide()
   $('#password').hide()
+  $('#new-drink-form').hide()
 }
 
 export default {
