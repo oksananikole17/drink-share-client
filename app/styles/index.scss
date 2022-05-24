@@ -1,1 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+    max-width: 1200px;
+    min-width: 300px;
+
+}
+
+ #auth-display {
+     font-size: large;
+     font-weight: bold;
+     padding:30px;
+     margin: 25px;
+     display: block;
+ }
