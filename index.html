@@ -20,6 +20,23 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
+      <sec id="auth-home">
+        <h3>Don't have an Account? Sign Up</h3>
+        <form id="sign-up-form">
+          <input name="credentials[email]" type="email" placeholder="Email">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+          <button class="auth-btn" type="submit">Sign Up</button>
+        </form>
+        <sec id="auth-display"></sec>
+        <h3>OR</h3>
+        <h3>Have an Account? Sign In</h3>
+        <form id="sign-in-form">
+          <input name="credentials[email]" type="email" placeholder="Email">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <button class="auth-btn" type="submit">Sign In</button>
+        </form>
+      </sec>
       <sec id="home-page">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">DrinkShare</a>
