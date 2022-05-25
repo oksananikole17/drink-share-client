@@ -54,7 +54,7 @@
               <a class="nav-link" href="#" id="show-drinks">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Your Drinks</a>
+              <a class="nav-link" href="#" id="my-drinks">Your Drinks</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -62,13 +62,13 @@
                 Drinks By Base
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Vodka</a>
-                <a class="dropdown-item" href="#">Gin</a>
-                <a class="dropdown-item" href="#">Mezcal/Tequila</a>
-                <a class="dropdown-item" href="#">Rum</a>
-                <a class="dropdown-item" href="#">Whiskey</a>
+                <a class="dropdown-item" href="#" id="vodka">Vodka</a>
+                <a class="dropdown-item" href="#" id="gin">Gin</a>
+                <a class="dropdown-item" href="#" id="tequila">Mezcal/Tequila</a>
+                <a class="dropdown-item" href="#" id="rum">Rum</a>
+                <a class="dropdown-item" href="#" id="whiskey">Whiskey</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Liqueurs and Cordials</a>
+                <a class="dropdown-item" href="#" id="other">Liqueurs and Cordials</a>
               </div>
             </li>
             <li class="nav-item">
@@ -76,7 +76,7 @@
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" id="myInput" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           <div id="password">
@@ -124,6 +124,7 @@
             <option>Mezcal/Tequila</option>
             <option>Rum</option>
             <option>Whiskey</option>
+            <option>Liqueur/Cordial</option>
           </select>
         </div>
         <div class="form-group">

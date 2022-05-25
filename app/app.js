@@ -22,4 +22,11 @@ $(() => {
     '.drinks-update-dynamic',
     drinkEvents.onDynamicUpdateDrink
   )
+  $('#my-drinks').on('click', drinkEvents.onIndexProfileDrinks)
+  $('#vodka').on('click', drinkEvents.onIndexVodkaDrinks)
+  $('#gin').on('click', drinkEvents.onIndexGinDrinks)
+  $('#rum').on('click', drinkEvents.onIndexRumDrinks)
+  $('#whiskey').on('click', drinkEvents.onIndexWhiskeyDrinks)
+  $('#tequila').on('click', drinkEvents.onIndexTequilaDrinks)
+  $('#other').on('click', drinkEvents.onIndexOtherDrinks)
 })

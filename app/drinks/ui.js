@@ -20,31 +20,19 @@ const onNewDrinkFailure = function () {
 
 const onIndexDrinksSuccess = function (response) {
   const drinks = response.drinks
-  // console.log(workoutsArray)
 
   // eslint-disable-next-line no-unused-vars
   let drinksHtml = ''
 
-  // if (user._id == drinks.owner) {
   drinks.forEach((drinks) => {
     drinksHtml += `
-                      <div id=${drinks._id}>
-                        <ul>
-                        <li>
-                        <div> Drink Name: ${drinks.name}</div>
-                        <div> Base: ${drinks.base}</div>
-                        <div> Build: ${drinks.build} </div>
-                        </li> 
-                        </ul>
-                        <form class="drinks-update-dynamic" data-id=${drinks._id}>
-        <input type="text" name="drinks[name]" placeholder="New Name Here" required>
-        <input type="text" name="drinks[base]" placeholder="Change Base" required>
-        <input type="text" name="drinks[build]" placeholder="Update Recipe" required>
-        <button class="drinks-update-btn" type="submit">Update Drink</button>
-      </form>
-      <button class="drinks-destroy-dynamic" data-id=${drinks._id}>Delete</button>
-      <sec id="drink-update-success"></sec>
-                        </div>
+         <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
+         <div class="card-header">${drinks.base}</div>
+         <div class="card-body">
+         <h5 class="card-title">${drinks.name}</h5>
+        <p class="card-text">${drinks.build}</p>
+        </div>  
+          </div>
                     `
   })
 
@@ -74,23 +62,13 @@ const onUpdateDrinkSuccess = function (id, data) {
   const element = document.getElementById(id)
 
   const drinkHtml = `
-                      <div id=${id}>
-                        <ul>
-                        <li>
-                        <div> Drink Name: ${data.drinks.name}</div>
-                        <div> Date: ${data.drinks.base}</div>
-                        <div> Time: ${data.drinks.build} </div>
-                        </li> 
-                        </ul>
-                     <form class="drinks-update-dynamic" data-id=${id}>
-        <input type="text" name="drinks[name]" placeholder="New Name Here" required>
-        <input type="text" name="drinks[base]" placeholder="Change Base" required>
-        <input type="text" name="drinks[build]" placeholder="Update Recipe" required>
-        <button class="drinks-update-btn" type="submit">Update Drink</button>
-      </form>
-      <button class="drinks-destroy-dynamic" data-id=${id}>Delete</button>
-      <sec id="drink-update-success"></sec>
-                        </div>
+                  <div id=${id}>
+         <div class="card-header" >${data.drinks.base}</div>
+         <div class="card-body" >
+         <h5 class="card-title">${data.drinks.name}</h5>
+        <p class="card-text">${data.drinks.build}</p>
+        </div>  
+         
                     `
 
   element.innerHTML = drinkHtml
@@ -111,10 +89,237 @@ const onUpdateDrinkSuccess = function (id, data) {
   $('form').trigger('reset')
 }
 
+const onIndexProfileDrinksSuccess = function (response) {
+  const drinks = response.drinks
+  const newArr = []
+
+  for (let i = 0; i < drinks.length; i++) {
+    // eslint-disable-next-line eqeqeq
+    if (store.user._id === drinks[i].owner) {
+      newArr.push(drinks[i])
+    }
+  }
+  // eslint-disable-next-line no-unused-vars
+  let drinksHtml = ''
+
+  // for (let i = 0; i < drinks.length; i++) {
+  //   // eslint-disable-next-line eqeqeq
+  //   if (store.user._id === drinks[i].owner) {
+  newArr.forEach((drinks) => {
+    drinksHtml += `
+                      <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
+         <div class="card-header">${drinks.base}</div>
+         <div class="card-body">
+         <h5 class="card-title">${drinks.name}</h5>
+        <p class="card-text">${drinks.build}</p>
+        </div>  
+          </div>
+                     <form class="drinks-update-dynamic" data-id=${drinks._id}>
+        <input type="text" name="drinks[name]" placeholder="New Name Here" required>
+        <input type="text" name="drinks[base]" placeholder="Change Base" required>
+        <input type="text" name="drinks[build]" placeholder="Update Recipe" required>
+        <button class="drinks-update-btn" type="submit">Update Drink</button>
+      </form>
+      <button class="drinks-destroy-dynamic" data-id=${drinks._id}>Delete</button>
+      <sec id="drink-update-success"></sec>
+                        </div>
+                    `
+  })
+
+  $('#index-drinks').html(drinksHtml)
+  $('#new-drink-form').hide()
+}
+
+const onIndexVodkaDrinksSuccess = function (response) {
+  const drinks = response.drinks
+  console.log(drinks)
+
+  const newArr = []
+
+  for (let i = 0; i < drinks.length; i++) {
+    // eslint-disable-next-line eqeqeq
+    if (drinks[i].base == 'Vodka') {
+      newArr.push(drinks[i])
+    }
+  }
+  // eslint-disable-next-line no-unused-vars
+  let drinksHtml = ''
+
+  newArr.forEach((drinks) => {
+    drinksHtml += `
+         <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
+         <div class="card-header">${drinks.base}</div>
+         <div class="card-body">
+         <h5 class="card-title">${drinks.name}</h5>
+        <p class="card-text">${drinks.build}</p>
+        </div>  
+          </div>
+                    `
+  })
+  $('#new-drink-form').hide()
+  $('#index-drinks').html(drinksHtml)
+}
+
+const onIndexWhiskeyDrinksSuccess = function (response) {
+  const drinks = response.drinks
+  console.log(drinks)
+
+  const newArr = []
+
+  for (let i = 0; i < drinks.length; i++) {
+    // eslint-disable-next-line eqeqeq
+    if (drinks[i].base == 'Whiskey') {
+      newArr.push(drinks[i])
+    }
+  }
+  // eslint-disable-next-line no-unused-vars
+  let drinksHtml = ''
+
+  newArr.forEach((drinks) => {
+    drinksHtml += `
+         <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
+         <div class="card-header">${drinks.base}</div>
+         <div class="card-body">
+         <h5 class="card-title">${drinks.name}</h5>
+        <p class="card-text">${drinks.build}</p>
+        </div>  
+          </div>
+                    `
+  })
+  $('#new-drink-form').hide()
+  $('#index-drinks').html(drinksHtml)
+}
+
+const onIndexGinDrinksSuccess = function (response) {
+  const drinks = response.drinks
+  console.log(drinks)
+
+  const newArr = []
+
+  for (let i = 0; i < drinks.length; i++) {
+    // eslint-disable-next-line eqeqeq
+    if (drinks[i].base == 'Gin') {
+      newArr.push(drinks[i])
+    }
+  }
+  // eslint-disable-next-line no-unused-vars
+  let drinksHtml = ''
+
+  newArr.forEach((drinks) => {
+    drinksHtml += `
+         <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
+         <div class="card-header">${drinks.base}</div>
+         <div class="card-body">
+         <h5 class="card-title">${drinks.name}</h5>
+        <p class="card-text">${drinks.build}</p>
+        </div>  
+          </div>
+                    `
+  })
+  $('#new-drink-form').hide()
+  $('#index-drinks').html(drinksHtml)
+}
+
+const onIndexTequilaDrinksSuccess = function (response) {
+  const drinks = response.drinks
+  console.log(drinks)
+
+  const newArr = []
+
+  for (let i = 0; i < drinks.length; i++) {
+    // eslint-disable-next-line eqeqeq
+    if (drinks[i].base == 'Mezcal/Tequila') {
+      newArr.push(drinks[i])
+    }
+  }
+  // eslint-disable-next-line no-unused-vars
+  let drinksHtml = ''
+
+  newArr.forEach((drinks) => {
+    drinksHtml += `
+         <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
+         <div class="card-header">${drinks.base}</div>
+         <div class="card-body">
+         <h5 class="card-title">${drinks.name}</h5>
+        <p class="card-text">${drinks.build}</p>
+        </div>  
+          </div>
+                    `
+  })
+  $('#new-drink-form').hide()
+  $('#index-drinks').html(drinksHtml)
+}
+
+const onIndexRumDrinksSuccess = function (response) {
+  const drinks = response.drinks
+  console.log(drinks)
+
+  const newArr = []
+
+  for (let i = 0; i < drinks.length; i++) {
+    // eslint-disable-next-line eqeqeq
+    if (drinks[i].base == 'Rum') {
+      newArr.push(drinks[i])
+    }
+  }
+  // eslint-disable-next-line no-unused-vars
+  let drinksHtml = ''
+
+  newArr.forEach((drinks) => {
+    drinksHtml += `
+         <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
+         <div class="card-header">${drinks.base}</div>
+         <div class="card-body">
+         <h5 class="card-title">${drinks.name}</h5>
+        <p class="card-text">${drinks.build}</p>
+        </div>  
+          </div>
+                    `
+  })
+  $('#new-drink-form').hide()
+  $('#index-drinks').html(drinksHtml)
+}
+
+const onIndexOtherDrinksSuccess = function (response) {
+  const drinks = response.drinks
+  console.log(drinks)
+
+  const newArr = []
+
+  for (let i = 0; i < drinks.length; i++) {
+    // eslint-disable-next-line eqeqeq
+    if (drinks[i].base == 'Liqueur/Cordial') {
+      newArr.push(drinks[i])
+    }
+  }
+  // eslint-disable-next-line no-unused-vars
+  let drinksHtml = ''
+
+  newArr.forEach((drinks) => {
+    drinksHtml += `
+         <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
+         <div class="card-header">${drinks.base}</div>
+         <div class="card-body">
+         <h5 class="card-title">${drinks.name}</h5>
+        <p class="card-text">${drinks.build}</p>
+        </div>  
+          </div>
+                    `
+  })
+  $('#new-drink-form').hide()
+  $('#index-drinks').html(drinksHtml)
+}
 export default {
   onNewDrinkSuccess,
   onNewDrinkFailure,
   onIndexDrinksSuccess,
   onDestroyDrinkSuccess,
-  onUpdateDrinkSuccess
+  onUpdateDrinkSuccess,
+  onIndexProfileDrinksSuccess,
+  onIndexVodkaDrinksSuccess,
+  onIndexGinDrinksSuccess,
+  onIndexWhiskeyDrinksSuccess,
+  onIndexRumDrinksSuccess,
+  onIndexTequilaDrinksSuccess,
+  onIndexOtherDrinksSuccess
 }

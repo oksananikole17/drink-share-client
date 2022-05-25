@@ -51,9 +51,64 @@ const onDynamicUpdateDrink = function (event) {
     .then(drinksUi.onUpdateDrinkSuccess(id, data))
 }
 
+const onIndexProfileDrinks = function (event) {
+  event.preventDefault()
+
+  // api call
+  drinksApi.indexDrinks().then(drinksUi.onIndexProfileDrinksSuccess)
+}
+
+const onIndexVodkaDrinks = function (event) {
+  event.preventDefault()
+
+  // api call
+  drinksApi.indexDrinks().then(drinksUi.onIndexVodkaDrinksSuccess)
+}
+
+const onIndexWhiskeyDrinks = function (event) {
+  event.preventDefault()
+
+  // api call
+  drinksApi.indexDrinks().then(drinksUi.onIndexWhiskeyDrinksSuccess)
+}
+
+const onIndexTequilaDrinks = function (event) {
+  event.preventDefault()
+
+  // api call
+  drinksApi.indexDrinks().then(drinksUi.onIndexTequilaDrinksSuccess)
+}
+
+const onIndexGinDrinks = function (event) {
+  event.preventDefault()
+
+  // api call
+  drinksApi.indexDrinks().then(drinksUi.onIndexGinDrinksSuccess)
+}
+
+const onIndexRumDrinks = function (event) {
+  event.preventDefault()
+
+  // api call
+  drinksApi.indexDrinks().then(drinksUi.onIndexRumDrinksSuccess)
+}
+
+const onIndexOtherDrinks = function (event) {
+  event.preventDefault()
+
+  // api call
+  drinksApi.indexDrinks().then(drinksUi.onIndexOtherDrinksSuccess)
+}
 module.exports = {
   onNewDrink,
   onIndexDrinks,
   onDynamicDestroyDrink,
-  onDynamicUpdateDrink
+  onDynamicUpdateDrink,
+  onIndexProfileDrinks,
+  onIndexVodkaDrinks,
+  onIndexGinDrinks,
+  onIndexRumDrinks,
+  onIndexTequilaDrinks,
+  onIndexWhiskeyDrinks,
+  onIndexOtherDrinks
 }
