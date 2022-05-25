@@ -29,4 +29,5 @@ $(() => {
   $('#whiskey').on('click', drinkEvents.onIndexWhiskeyDrinks)
   $('#tequila').on('click', drinkEvents.onIndexTequilaDrinks)
   $('#other').on('click', drinkEvents.onIndexOtherDrinks)
+  $('#searchbar').on('keyup', drinkEvents.searchbar)
 })

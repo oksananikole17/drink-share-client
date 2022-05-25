@@ -10,8 +10,21 @@ const onNewDrinkSuccess = function (response) {
     $('#create-display').html('')
     $('#create-display').removeClass('success')
   }, 5000)
+  const element = document.getElementById('index-drinks')
+  const drink = response.drink
 
-  store.drinks = response.drinks
+  const drinksHtml = `<sec class="main-card">
+         <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drink._id}>
+         <div class="card-header">${drink.base}</div>
+         <div class="card-body">
+        <h5 class="card-title">${drink.name}</h5>
+        <p class="card-text">${drink.build}</p>
+        </div>  
+          </div>
+          </sec>`
+
+  element.innerHTML += drinksHtml
+  store.drinks = response.drink
 }
 
 const onNewDrinkFailure = function () {
@@ -26,17 +39,20 @@ const onIndexDrinksSuccess = function (response) {
 
   drinks.forEach((drinks) => {
     drinksHtml += `
+    <sec class="main-card">
          <div class="card text-white bg-dark mb-3 w-60" style="max-width: 55rem;" id=${drinks._id}>
          <div class="card-header">${drinks.base}</div>
          <div class="card-body">
-         <h5 class="card-title">${drinks.name}</h5>
+        <h5 class="card-title">${drinks.name}</h5>
         <p class="card-text">${drinks.build}</p>
         </div>  
           </div>
+          </sec>
                     `
   })
 
   $('#index-drinks').html(drinksHtml)
+  $('#new-drink-form').show()
 }
 
 const onDestroyDrinkSuccess = function (id) {
@@ -67,6 +83,22 @@ const onUpdateDrinkSuccess = function (id, data) {
          <div class="card-body" >
          <h5 class="card-title">${data.drinks.name}</h5>
         <p class="card-text">${data.drinks.build}</p>
+       <form class="drinks-update-dynamic" data-id=${id}>
+        <input type="text" name="drinks[name]" placeholder="New Name Here" style="width:400px; margin:10px;" required>
+        <label for="exampleFormControlSelect1"></label>
+          <select class="form-control" name="drinks[base]" type="text" style="width:180px; margin-left:8px;">
+            <option>Vodka</option>
+            <option>Gin</option>
+            <option>Mezcal/Tequila</option>
+            <option>Rum</option>
+            <option>Whiskey</option>
+            <option>Liqueur/Cordial</option>
+          </select>
+        <textarea type="text" name="drinks[build]" placeholder="Update Recipe" rows="3" style="width:400px; margin:10px;" required></textarea>
+        <button class="drinks-update-btn" type="submit">Update Drink</button>
+      </form>
+      <button class="drinks-destroy-dynamic" data-id=${id}>Delete</button>
+      <sec id="drink-update-success"></sec>
         </div>  
          
                     `
@@ -113,11 +145,18 @@ const onIndexProfileDrinksSuccess = function (response) {
          <h5 class="card-title">${drinks.name}</h5>
         <p class="card-text">${drinks.build}</p>
         </div>  
-          </div>
                      <form class="drinks-update-dynamic" data-id=${drinks._id}>
-        <input type="text" name="drinks[name]" placeholder="New Name Here" required>
-        <input type="text" name="drinks[base]" placeholder="Change Base" required>
-        <input type="text" name="drinks[build]" placeholder="Update Recipe" required>
+        <input type="text" name="drinks[name]" placeholder="New Name Here" style="width:400px; margin:10px;" required>
+        <label for="exampleFormControlSelect1"></label>
+          <select class="form-control" name="drinks[base]" type="text" style="width:180px; margin-left:8px;">
+            <option>Vodka</option>
+            <option>Gin</option>
+            <option>Mezcal/Tequila</option>
+            <option>Rum</option>
+            <option>Whiskey</option>
+            <option>Liqueur/Cordial</option>
+          </select>
+        <textarea type="text" name="drinks[build]" placeholder="Update Recipe" rows="3" style="width:400px; margin:10px;" required></textarea>
         <button class="drinks-update-btn" type="submit">Update Drink</button>
       </form>
       <button class="drinks-destroy-dynamic" data-id=${drinks._id}>Delete</button>

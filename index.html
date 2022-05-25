@@ -75,9 +75,24 @@
               <a class="nav-link disabled" href="#">Cheers!</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" id="myInput" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <form class="form-inline my-2 my-lg-0" id="searchForm" action="javascript:search();">
+            <input class="form-control mr-sm-2" id="searchbar" onkeyup="myFunction()" type="text" placeholder="Search" aria-label="Search">
+            <script>
+              function myFunction() {
+                let input = document.getElementById('searchbar').value
+                input = input.toLowerCase()
+                const x = document.getElementsByClassName('main-card')
+
+                for (let i = 0; i < x.length; i++) {
+                  if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display = 'none'
+                  } else {
+                    x[i].style.display = 'list-item'
+                  }
+                }
+              }
+            </script>
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="document.getElementById('searchForm').submit(); return false;">Search</button> -->
           </form>
           <div id="password">
             <button type="button" class="btn btn-outline-white my-2 my-sm-0 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -25,7 +25,6 @@ const onSignInSuccess = function (response) {
   $('#home-page').show()
   $('#password').show()
   $('#new-drink-form').show()
-  $('#index-drinks').show()
 
   store.user = response.user
 
