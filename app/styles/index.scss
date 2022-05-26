@@ -85,3 +85,54 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+ .drinks-destroy-dynamic {
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 20px;
+  margin-left:460px;
+  width: 120px;
+  border-radius:50%;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #696969;
+  border: none;
+  box-shadow: 0 9px #999;
+}
+
+.drinks-destroy-dynamic:hover {background-color: #696969}
+
+.drinks-destroy-dynamic:active {
+  background-color: #696969;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+ .drinks-update-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 5px;
+  width: 120px;
+  border-radius:50%;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  box-shadow: 0 9px #999;
+}
+
+.drinks-update-btn:hover {background-color: #3e8e41}
+
+.drinks-update-btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

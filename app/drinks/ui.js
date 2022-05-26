@@ -86,7 +86,7 @@ const onUpdateDrinkSuccess = function (id, data) {
        <form class="drinks-update-dynamic" data-id=${id}>
         <input type="text" name="drinks[name]" placeholder="New Name Here" style="width:400px; margin:10px;" required>
         <label for="exampleFormControlSelect1"></label>
-          <select class="form-control" name="drinks[base]" type="text" style="width:180px; margin-left:8px;">
+          <select class="form-control" name="drinks[base]" type="text" style="width:400px; margin-left:8px;">
             <option>Vodka</option>
             <option>Gin</option>
             <option>Mezcal/Tequila</option>
@@ -148,7 +148,7 @@ const onIndexProfileDrinksSuccess = function (response) {
                      <form class="drinks-update-dynamic" data-id=${drinks._id}>
         <input type="text" name="drinks[name]" placeholder="New Name Here" style="width:400px; margin:10px;" required>
         <label for="exampleFormControlSelect1"></label>
-          <select class="form-control" name="drinks[base]" type="text" style="width:180px; margin-left:8px;">
+          <select class="form-control" name="drinks[base]" type="text" style="width:400px; margin-left:8px;">
             <option>Vodka</option>
             <option>Gin</option>
             <option>Mezcal/Tequila</option>
