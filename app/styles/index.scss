@@ -42,3 +42,46 @@ body {
  .main-card {
    display: list-item;    
   } 
+
+  #sign-up-form {
+    display:block;
+    margin-left: 280px;
+  }
+
+  #sign-in-form {
+      margin-left: 380px;
+  }
+
+    h3 {
+      text-align: center;
+      padding: 10px;
+      font-weight: 100;
+      font-style: oblique;
+  }
+
+  .auth-btn {
+      border-radius: 50%;
+
+  }
+
+  .auth-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  box-shadow: 0 9px #999;
+}
+
+.auth-btn:hover {background-color: #3e8e41}
+
+.auth-btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
