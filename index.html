@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <sec id="auth-home">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="1F378_color.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          DrinkShare
+        </a>
+      </nav>
+        <h3>Don't have an Account? Sign Up</h3>
+        <form id="sign-up-form">
+          <input name="credentials[email]" type="email" placeholder="Email">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+          <button class="auth-btn" type="submit">Sign Up</button>
+        </form>
+        <sec id="auth-display"></sec>
+        <h3>OR</h3>
+        <h3>Have an Account? Sign In</h3>
+        <form id="sign-in-form">
+          <input name="credentials[email]" type="email" placeholder="Email">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <button class="auth-btn" type="submit">Sign In</button>
+        </form>
+      </sec>
+      <sec id="home-page">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="1F378_color.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          DrinkShare
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" id="show-drinks">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="my-drinks">Your Drinks</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Drinks By Base
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#" id="vodka">Vodka</a>
+                <a class="dropdown-item" href="#" id="gin">Gin</a>
+                <a class="dropdown-item" href="#" id="tequila">Mezcal/Tequila</a>
+                <a class="dropdown-item" href="#" id="rum">Rum</a>
+                <a class="dropdown-item" href="#" id="whiskey">Whiskey</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" id="other">Liqueurs and Cordials</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Cheers!</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" id="searchForm" action="javascript:search();">
+            <input class="form-control mr-sm-2" id="searchbar" onkeyup="myFunction()" type="text" placeholder="Search" aria-label="Search">
+            <script>
+              function myFunction() {
+                let input = document.getElementById('searchbar').value
+                input = input.toLowerCase()
+                const x = document.getElementsByClassName('main-card')
+
+                for (let i = 0; i < x.length; i++) {
+                  if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display = 'none'
+                  } else {
+                    x[i].style.display = 'list-item'
+                  }
+                }
+              }
+            </script>
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="document.getElementById('searchForm').submit(); return false;">Search</button> -->
+          </form>
+          <div id="password">
+            <button type="button" class="btn btn-outline-white my-2 my-sm-0 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Change Password
+            </button>
+          
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Your Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="password-form">
+                      <input name="passwords[old]" type="password" placeholder="Old Password">
+                      <input name="passwords[new]" type="password" placeholder="New Password">
+                      <div id="pass-success"></div>
+          
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-warning pass">Change Password</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="sign-out" class="btn btn-outline-white my-2 my-sm-0 text-white">Sign Out</button>
+        </div>
+      </nav>
+    </sec>
+      <form id="new-drink-form">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Name</label>
+          <input name="drinks[name]" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Drink Name">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Base Choice</label>
+          <select class="form-control" id="exampleFormControlSelect1" name="drinks[base]" type="text">
+            <option>Vodka</option>
+            <option>Gin</option>
+            <option>Mezcal/Tequila</option>
+            <option>Rum</option>
+            <option>Whiskey</option>
+            <option>Liqueur/Cordial</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Describe Your Build</label>
+          <textarea name="drinks[build]" type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Cheers!</button>
+        <div id="create-display"></div>
+      </form>
+      <sec id="index-drinks"></sec>
+    </body>
+</html>
