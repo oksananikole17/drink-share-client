@@ -53,6 +53,7 @@ const onIndexDrinksSuccess = function (response) {
 
   $('#index-drinks').html(drinksHtml)
   $('#new-drink-form').show()
+  $('#index-drinks').show()
 }
 
 const onDestroyDrinkSuccess = function (id) {
