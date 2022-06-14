@@ -1,6 +1,8 @@
 
 # DrinkShare Project
 
+Description 
+
 Welcome to my DrinkShare App! This application is designed to allow you to sign-up as a new user and then create new drinks you created with a Name, a Base Spirit and a Build(recipe). You can log out at any time and log back in when you'd like to revisit your drinks, or view anyone elses drinks that have been posted to the site!
 
 ## Instructions
