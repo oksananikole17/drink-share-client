@@ -51,3 +51,10 @@ PATCH	    --      /drinks/:id	   --    update	  --     Update
 
 DELETE	 --       /drinks/:id	--   destroy	  --    Delete
 
+## v.2 Features
+
+Plan to improve upon search bar to only search drinks by their "name" key.
+
+Create more appealing cards for each drink, possibly with ability to add/upload image alongside.
+
+Implement modals for update form so that profile drink cards look less busy/clustered.
