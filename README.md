@@ -31,3 +31,23 @@ API Repo Link: https://github.com/oksananikole17/drink-share-api
 ## Wireframe
 
 (https://i.imgur.com/Ty1Y52o.jpg)
+
+## Planning Story
+
+Design ERD and Wire-frame
+
+Create reminder routes of GET, POST, PATCH, DELETE
+
+Created schema for "Drink" with the keys of name, build, and base.
+
+## API Routes
+HTTP Method	 --    URLPath	   --    Action	 --     CRUD
+
+GET	    --         /drinks	  --     index or list    --	   Read
+
+POST	    --        /drinks	  --    create	     --      Create
+
+PATCH	    --      /drinks/:id	   --    update	  --     Update
+
+DELETE	 --       /drinks/:id	--   destroy	  --    Delete
+
